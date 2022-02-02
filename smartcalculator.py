@@ -54,34 +54,36 @@ def calculate():
                 break
         elif word.upper() not in operations.keys():
             list.delete(0,END)
-            list.insert(END,'something went wrong please enter again')
+            list.insert(END,'something went wrong please enter again')            
+            
+if __name__ == '__main__':
+            
+    operations = {'ADD':add , 'ADDITION':add , 'SUM':add , 'PLUS':add , '+': add,
+                  'SUB':sub , 'DIFFERENCE':sub , 'MINUS':sub , 'SUBTRACT':sub, '-':sub,
+                  'LCM':lcm , 'HCF':hcf , 'PRODUCT':mul , 'MULTIPLICATION':mul, '*':mul,
+                  'MULTIPLY':mul , 'DIVISION':div , 'DIV':div ,'DIVIDE':div, '/':div,
+                  'MOD':mod , 'REMANDER':mod , 'MODULUS':mod, '%':mod }
 
-operations = {'ADD':add , 'ADDITION':add , 'SUM':add , 'PLUS':add , '+': add,
-              'SUB':sub , 'DIFFERENCE':sub , 'MINUS':sub , 'SUBTRACT':sub, '-':sub,
-              'LCM':lcm , 'HCF':hcf , 'PRODUCT':mul , 'MULTIPLICATION':mul, '*':mul,
-              'MULTIPLY':mul , 'DIVISION':div , 'DIV':div ,'DIVIDE':div, '/':div,
-              'MOD':mod , 'REMANDER':mod , 'MODULUS':mod, '%':mod }
+    win = Tk()
+    win.geometry('500x300')
+    win.title('Smart Calculator')
+    win.configure(bg='lightskyblue')
 
-win = Tk()
-win.geometry('500x300')
-win.title('Smart Calculator')
-win.configure(bg='lightskyblue')
+    l1 = Label(win , text='I am a smart calculator',width=20 , padx=3)
+    l1.place(x=150,y=10)
+    l2 = Label(win , text='My name is Pugger' , padx=3)
+    l2.place(x=180,y=40)
+    l3 = Label(win , text='How can I help you?' , padx=3)
+    l3.place(x=176,y=130)
 
-l1 = Label(win , text='I am a smart calculator',width=20 , padx=3)
-l1.place(x=150,y=10)
-l2 = Label(win , text='My name is Pugger' , padx=3)
-l2.place(x=180,y=40)
-l3 = Label(win , text='How can I help you?' , padx=3)
-l3.place(x=176,y=130)
+    textin = StringVar()
+    e1 = Entry(win , width=30 , textvariable = textin)
+    e1.place(x=100,y=160)
 
-textin = StringVar()
-e1 = Entry(win , width=30 , textvariable = textin)
-e1.place(x=100,y=160)
+    b1 = Button(win , text='Enter' ,command=calculate)
+    b1.place(x=210,y=200)
 
-b1 = Button(win , text='Enter' ,command=calculate)
-b1.place(x=210,y=200)
+    list = Listbox(win,width=20,height=3)
+    list.place(x=150,y=230)
 
-list = Listbox(win,width=20,height=3)
-list.place(x=150,y=230)
-
-win.mainloop()
+    win.mainloop()
